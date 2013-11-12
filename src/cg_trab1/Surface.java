@@ -13,7 +13,8 @@ public class Surface extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	private static final int sleepTime = 20;
+	
 	/**
 	 * @param args
 	 */
@@ -28,10 +29,10 @@ public class Surface extends JFrame {
 	
 	public void paint(Graphics g) {
 		
-		Circle circle = new Circle();
-		circle.midPointCircle(100, 100, 30);
+		Circle circleE = new Circle();
+		circleE.midPointCircle(150, 250, 50);
 		
-		ArrayList<Point> cPoints = circle.getCirclePoints();
+		ArrayList<Point> cPoints = circleE.getCirclePoints();
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
@@ -39,6 +40,30 @@ public class Surface extends JFrame {
 		{
 			Point point = cPoints.get(i);
 			g2d.drawLine(point.x, point.y, point.x, point.y);
+			
+			try {
+				Thread.sleep(sleepTime);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		Circle circleD = new Circle();
+		circleD.midPointCircle(250, 250, 50);
+		
+		cPoints = circleD.getCirclePoints();
+		
+		for(int i=0; i < cPoints.size(); i++)
+		{
+			Point point = cPoints.get(i);
+			g2d.drawLine(point.x, point.y, point.x, point.y);
+			try {
+				Thread.sleep(sleepTime);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	}

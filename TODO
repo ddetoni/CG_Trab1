@@ -1,6 +1,10 @@
 - Implementar método DrawCircle (Isso foi feito no método paint() da classe Surface e deve continuar assim) - FEITO
 - Testar método MidPointCircle - FEITO(funciona)
 
+- Padrão atual de desenho dos octantes: 
+		Inf.Direito, Sup.Direito, Inf.Esquerdo, Sup.Esquerdo, 
+		Dir.Baixo, Dir.Cima, Esq.Baixo, Esq.Cima
+
 - Implementar método getPoints com parametros "quadrante" e "sentido"
 
 ...
