@@ -1,0 +1,5 @@
+- Implementar método DrawCircle
+- Testar método MidPointCircle
+- Implementar método getPoints com parametros "quadrante" e "sentido"
+
+...
