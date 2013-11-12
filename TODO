@@ -1,5 +1,6 @@
-- Implementar método DrawCircle
-- Testar método MidPointCircle
+- Implementar método DrawCircle (Isso foi feito no método paint() da classe Surface e deve continuar assim) - FEITO
+- Testar método MidPointCircle - FEITO(funciona)
+
 - Implementar método getPoints com parametros "quadrante" e "sentido"
 
 ...
