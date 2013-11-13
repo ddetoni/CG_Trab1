@@ -127,3 +127,10 @@ public class Surface extends JFrame {
 			clearWindow(g2d);
 		}
 	}
+	public static void clearWindow(Graphics2D g)
+	  {
+	    g.setPaint(Color.white);
+	    g.fill(new Rectangle(0,0,1000,700));
+	    g.setPaint(Color.black);
+	  }
+}
