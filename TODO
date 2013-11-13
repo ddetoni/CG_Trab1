@@ -2,9 +2,7 @@
 - Testar método MidPointCircle - FEITO(funciona)
 
 - Padrão atual de desenho dos octantes: 
-		Inf.Direito, Sup.Direito, Inf.Esquerdo, Sup.Esquerdo, 
-		Dir.Baixo, Dir.Cima, Esq.Baixo, Esq.Cima
-
-- Implementar método getPoints com parametros "quadrante" e "sentido"
+		Inf.Direito(1), Sup.Direito(2), Inf.Esquerdo(3), Sup.Esquerdo(4), 
+		Dir.Baixo(5), Dir.Cima(6), Esq.Baixo(7), Esq.Cima(8)
 
 ...

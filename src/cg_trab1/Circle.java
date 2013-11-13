@@ -4,7 +4,6 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 //Class that implements Circle methods.
-
 public class Circle {
 	
 	private ArrayList<Point> circlePoints;
@@ -13,7 +12,7 @@ public class Circle {
 		this.circlePoints = new ArrayList<Point>();	
 	}
 	
-	// Baseado daqui: http://rosettacode.org/wiki/Bitmap/Midpoint_circle_algorithm#Java
+	// Based: http://rosettacode.org/wiki/Bitmap/Midpoint_circle_algorithm#Java
 	public void midPointCircle(int centerX, int centerY, int radius) {
 		
 		int d = (5 - radius*4)/4;
@@ -43,29 +42,35 @@ public class Circle {
 		} while( x <= y);
 	}
 	
-	public ArrayList<Point> getCirclePoints() {
+	// Return the selected octant.
+	// Way means: 1=normal-way, -1=inverted-way
+	// Normal-way means: Way used by de Middle Point Circle Algorithm
+	public ArrayList<Point> getOctant(int numOctant, int way){
 		
-		ArrayList<Point> sortedPoints = new ArrayList<Point>();
-		int count = 0;
-		int iterator = -8;
-		int startIterator = 0;
+		ArrayList<Point> octant = new ArrayList<Point>();
 		
-		do {
+		
+		if ( way == 1) {
 			
-			if (iterator >= this.circlePoints.size()-8)
+			int index = this.circlePoints.size()-(8 - numOctant);
+			
+			for(int i=0; i < (this.circlePoints.size()/8); i++)
 			{
-				iterator = startIterator++;
-				count++;
-			} else {
-				iterator += 8;
+				octant.add(this.circlePoints.get(index));
+				index -= 8 ;
 			}
 			
-			sortedPoints.add(this.circlePoints.get(iterator));
+		} else {
+			int index = numOctant;
 			
-		} while (count <= 8);
+			for(int i=0; i < (this.circlePoints.size()/8); i++)
+			{
+				octant.add(this.circlePoints.get(index));
+				index += 8 ;
+			}
+			
+		}
 		
-		return sortedPoints;
-		
-	}
-	
+		return octant;
+	}	
 }
