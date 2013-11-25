@@ -18,13 +18,29 @@ public class Surface extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private static final int sleepTime = 20;
-	private static final int step = 60;
+	//private static final int step = 60;
 	private static final int size = 50;
 	
+	private static int radius = 0;
+	private static int step = 0;
+	private static int segmentation = 0;
+	
+	
 	/**
-	 * @param args
+	 * params: step segmentation radius
 	 */
 	public static void main(String[] args) {
+		
+		try
+		{
+			step = Integer.parseInt(args[0]);
+			segmentation = Integer.parseInt(args[1]);
+			radius = Integer.parseInt(args[2]);
+		} catch(NumberFormatException nfe)
+		{
+			System.out.printf("Arguments is not a number.");
+			System.exit(1);
+		}
 		
 		Surface s = new Surface();
 		s.setTitle("Circle");
@@ -37,11 +53,16 @@ public class Surface extends JFrame {
 	public ArrayList<Point> calculateInfiniteSymbolPoints() {
 		ArrayList<Point> infinitePoints = new ArrayList<Point>();
 		
+		int centerX = radius + size;
+		int centerY = radius + size;
+		
 		Circle circleE = new Circle();
-		circleE.midPointCircle(250, 280, 200);
+		circleE.midPointCircle(centerX, centerY, radius);
+		
+		centerX = centerX + radius*2;
 		
 		Circle circleD = new Circle();
-		circleD.midPointCircle(650, 280, 200);
+		circleD.midPointCircle(centerX, centerY, radius);
 		
 		infinitePoints.addAll(circleE.getOctant(1, -1));
 		infinitePoints.addAll(circleE.getOctant(5, 1));
@@ -127,10 +148,10 @@ public class Surface extends JFrame {
 			clearWindow(g2d);
 		}
 	}
-	public static void clearWindow(Graphics2D g)
-	  {
+	
+	public static void clearWindow(Graphics2D g){
 	    g.setPaint(Color.white);
 	    g.fill(new Rectangle(0,0,1000,700));
 	    g.setPaint(Color.black);
-	  }
+	}
 }
