@@ -52,7 +52,7 @@ public class SurfaceImage extends JFrame {
 	}
 	
 	// Draw the infinite symbol with Octants
-	public ArrayList<Point> calculateInfiniteSymbolPoints() {
+	public ArrayList<Point> calculateInfinitySymbolPoints() {
 		ArrayList<Point> infinitePoints = new ArrayList<Point>();
 		
 		int centerX = radius + size;
@@ -89,6 +89,43 @@ public class SurfaceImage extends JFrame {
 		
 	}
 	
+	public ArrayList<Point> getAllOctantPoints() {
+		ArrayList<Point> infinitePoints = new ArrayList<Point>();
+		
+		int centerX = radius + size;
+		int centerY = radius + size;
+		
+		Circle circleE = new Circle();
+		circleE.midPointCircle(centerX, centerY, radius);
+		
+		centerX = centerX + radius*2;
+		
+		Circle circleD = new Circle();
+		circleD.midPointCircle(centerX, centerY, radius);
+		
+		infinitePoints.add(circleE.getOctant(1, -1).get(0));
+		infinitePoints.add(circleE.getOctant(5, 1).get(0));
+		
+		infinitePoints.add(circleD.getOctant(6, -1).get(0));
+		infinitePoints.add(circleD.getOctant(2, 1).get(0));
+		infinitePoints.add(circleD.getOctant(0, -1).get(0));
+		infinitePoints.add(circleD.getOctant(4, 1).get(0));
+		infinitePoints.add(circleD.getOctant(5, -1).get(0));
+		infinitePoints.add(circleD.getOctant(1, 1).get(0));
+		infinitePoints.add(circleD.getOctant(3, -1).get(0));
+		infinitePoints.add(circleD.getOctant(7, 1).get(0));
+		
+		infinitePoints.add(circleE.getOctant(4, -1).get(0));
+		infinitePoints.add(circleE.getOctant(0, 1).get(0));
+		infinitePoints.add(circleE.getOctant(2, -1).get(0));
+		infinitePoints.add(circleE.getOctant(6, 1).get(0));
+		infinitePoints.add(circleE.getOctant(7, -1).get(0));
+		infinitePoints.add(circleE.getOctant(3, 1).get(0));
+		
+		return infinitePoints;
+		
+	}
+	
 	public void drawInfinity(Graphics2D g2d,ArrayList<Point>points,boolean firstTime){
 		for(int i=0; i < points.size(); i++)
 		{
@@ -112,7 +149,7 @@ public class SurfaceImage extends JFrame {
 	
 	public void paint(Graphics g) {
 		
-		ArrayList<Point> points = this.calculateInfiniteSymbolPoints();
+		ArrayList<Point> points = this.getAllOctantPoints();
 		Graphics2D g2d = (Graphics2D) g;
 		
 		String[] imgPaths = {"./images/1982_alemanha_breitner.jpg", "./images/1982_alemanha_rummenigge.jpg",
@@ -127,6 +164,9 @@ public class SurfaceImage extends JFrame {
 		int cImg = 0;
 		BufferedImage image = loadImage(imgPaths[cImg]);
 		
+		
+		
+		/*
 		int countStep = step;
 		int octant = points.size()/16;
 		Point last = new Point(0,0);
@@ -150,6 +190,7 @@ public class SurfaceImage extends JFrame {
 			
 			sustain(10);
 		}
+		*/
 		
 	}
 	
