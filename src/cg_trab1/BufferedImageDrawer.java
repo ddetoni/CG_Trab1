@@ -5,18 +5,14 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-
-
-/**
-* A class for drawing a BufferedImage object. It can be used in 
-* connection with double buffering.
-*
-* @author Frank Klawonn
-* Last change 27.05.2005
-*/
 public class BufferedImageDrawer extends Frame
 {
-  //These image is drawn when the paint method is called.
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+//These image is drawn when the paint method is called.
   public BufferedImage bi;
 
   //This Graphics2D object can be used to draw on bi.

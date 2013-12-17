@@ -1,7 +1,6 @@
 package cg_trab1;
 
 import java.awt.Point;
-import java.awt.Shape;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -12,15 +11,12 @@ public class SurfaceImage {
 	private TriangulatedImage t[] = new TriangulatedImage[16];
     private BufferedImage cleaner;
     private ArrayList<Point> points;
-    private int width=800;
-    private int height=800;
+    private int width=1000;
+    private int height=1000;
 	
-	private static final int size = 100;
-	Shape RectA, RectB = null;
-	private static int radius = 0;
+	private static final int size = 50;
+	private static int radius = 200;
 	private static int steps = 5;
-	boolean decreasing = true;
-	boolean last = false;
 	
 	public static void main(String[] args) {
 		
@@ -36,7 +32,7 @@ public class SurfaceImage {
 		BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
         this.buffid = new BufferedImageDrawer(bi, width,height);
-        this.buffid.setTitle("Sei la");
+        this.buffid.setTitle("Trab 2");
         
         this.points = new ArrayList<Point>();
 		
@@ -167,7 +163,7 @@ public class SurfaceImage {
 	public void run() {
 		
 		Point pointA, pointB;
-        double step = (double) this.points.size() / 16;
+        //double step = (double) this.points.size() / 16;
         
         for(int i=0; i<t.length-1; i++)
         {
@@ -182,7 +178,8 @@ public class SurfaceImage {
                 int pointY = (int) ((1 - alpha) * pointA.y + alpha * pointB.y);
                 
                 buffid.g2dbi.drawImage(t[i].mixWith(t[i+1], alpha), pointX, pointY, null);
-                buffid.repaint();        
+                buffid.repaint();
+                
         	}
         }	
 	}

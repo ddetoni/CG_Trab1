@@ -170,18 +170,7 @@ public class TriangulatedImage
         }
         return _2dpoints;
     }
-	
 
-  /**
-  * A method that computes for a point v and three additional noncollinear points 
-  * a representation of v as a linear combination of the three points. The three coefficents
-  * for the representation of v are returned.
-  * 
-  * @param v          point to be represented.
-  * @param triangle   an array contain three noncollinear points.
-  * 
-  * @return           the three coefficients for the representation of v.
-  */
   public static double[] triangleCoordinates(Point2D v, Point2D[] triangle)
   {
 	
@@ -218,18 +207,6 @@ public class TriangulatedImage
     return(result);
   }
 
-
-
-  /**
-  * Test, whether a given array of coefficienten represents a convex combination,
-  * i.e. it is checked, whether all elements in the array are between 0 and 1 
-  * and whether they sum up to 1.
-  * 
-  * @param t          array with the coefficients.
-  * 
-  * @return           true if and only if the coefficients represent a convex combination.
-  */
-  
   public static boolean isConvexCombination(double[] t)
   {
     boolean result;
@@ -252,21 +229,6 @@ public class TriangulatedImage
     return(result);
   }
 
-
-
-  
-  /**
-  * Generates and interpolated image from two triangulated images (this and ti).
-  * ti contribued to the interpolated image by alpha*100%. The two images must have the 
-  * same size, the same number of points for the triangulation and the number of triangles.
-  * Furthermore, the triangles for both images must consist of the points with the same 
-  * indices. Only the position of the points does need to coincide for the two images.
-  * 
-  * @param ti         second triangulated image.
-  * @param alpha      proportion that ti should contribute to the interpolated image.
-  * 
-  * @return           the interpolated image.
-  */
   public BufferedImage mixWith(TriangulatedImage ti, double alpha)
   {
     TriangulatedImage mix = new TriangulatedImage();
@@ -296,7 +258,6 @@ public class TriangulatedImage
 
     int rgbValueThis;
     int rgbValueTi;
-    int rgbValueMix;
     Color thisColour;
     Color tiColour;
     Color pixelColour;
@@ -435,12 +396,7 @@ public class TriangulatedImage
       }//endfor j
     }//endfor i
 
-
-
     return(mix.bi);
   }
-
-
-
 }
 
