@@ -163,7 +163,6 @@ public class SurfaceImage {
 	public void run() {
 		
 		Point pointA, pointB;
-        //double step = (double) this.points.size() / 16;
         
         for(int i=0; i<t.length-1; i++)
         {
