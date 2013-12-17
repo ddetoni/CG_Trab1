@@ -1,60 +1,48 @@
 package cg_trab1;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.Shape;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-
-public class SurfaceImage extends JFrame {
+public class SurfaceImage {
 
 	private static final long serialVersionUID = 1L;
+	private BufferedImageDrawer buffid;
+	private TriangulatedImage t[] = new TriangulatedImage[16];
+    private BufferedImage cleaner;
+    private ArrayList<Point> points;
+    private int width=800;
+    private int height=800;
+	
 	private static final int size = 100;
 	Shape RectA, RectB = null;
 	private static int radius = 0;
-	private static int step = 0;
+	private static int steps = 5;
 	boolean decreasing = true;
 	boolean last = false;
 	
 	public static void main(String[] args) {
 		
-		try
-		{
-			step = Integer.parseInt(args[0]);
-			radius = Integer.parseInt(args[1]);
-			if(radius>200){
-				radius=200;
-			}
-			if(step<=0){
-				step= 1;
-			}
-		} catch(NumberFormatException nfe)
-		{
-			System.out.printf("Arguments is not a number.");
-			System.exit(1);
-		}
+		SurfaceImage surImage = new SurfaceImage();
+		surImage.getAllOctantPoints();
+		surImage.loadAllImages();
+		surImage.run();
 		
-		SurfaceImage s = new SurfaceImage();
-		s.setTitle("SurfaceImage");
-		s.setBackground(Color.white);
-		s.setSize(1200, 700);
-		s.setVisible(true);
 	}
 	
-	// Draw the infinite symbol with Octants
-	public ArrayList<Point> calculateInfinitySymbolPoints() {
-		ArrayList<Point> infinitePoints = new ArrayList<Point>();
+	public SurfaceImage() {
 		
+		BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+
+        this.buffid = new BufferedImageDrawer(bi, width,height);
+        this.buffid.setTitle("Sei la");
+        
+        this.points = new ArrayList<Point>();
+		
+	}
+	
+	public void getAllOctantPoints() {
 		int centerX = radius + size;
 		int centerY = radius + size;
 		
@@ -66,92 +54,28 @@ public class SurfaceImage extends JFrame {
 		Circle circleD = new Circle();
 		circleD.midPointCircle(centerX, centerY, radius);
 		
-		infinitePoints.addAll(circleE.getOctant(1, -1));
-		infinitePoints.addAll(circleE.getOctant(5, 1));
+		this.points.add(circleE.getOctant(1, -1).get(0));
+		this.points.add(circleE.getOctant(5, 1).get(0));
 		
-		infinitePoints.addAll(circleD.getOctant(6, -1));
-		infinitePoints.addAll(circleD.getOctant(2, 1));
-		infinitePoints.addAll(circleD.getOctant(0, -1));
-		infinitePoints.addAll(circleD.getOctant(4, 1));
-		infinitePoints.addAll(circleD.getOctant(5, -1));
-		infinitePoints.addAll(circleD.getOctant(1, 1));
-		infinitePoints.addAll(circleD.getOctant(3, -1));
-		infinitePoints.addAll(circleD.getOctant(7, 1));
+		this.points.add(circleD.getOctant(6, -1).get(0));
+		this.points.add(circleD.getOctant(2, 1).get(0));
+		this.points.add(circleD.getOctant(0, -1).get(0));
+		this.points.add(circleD.getOctant(4, 1).get(0));
+		this.points.add(circleD.getOctant(5, -1).get(0));
+		this.points.add(circleD.getOctant(1, 1).get(0));
+		this.points.add(circleD.getOctant(3, -1).get(0));
+		this.points.add(circleD.getOctant(7, 1).get(0));
 		
-		infinitePoints.addAll(circleE.getOctant(4, -1));
-		infinitePoints.addAll(circleE.getOctant(0, 1));
-		infinitePoints.addAll(circleE.getOctant(2, -1));
-		infinitePoints.addAll(circleE.getOctant(6, 1));
-		infinitePoints.addAll(circleE.getOctant(7, -1));
-		infinitePoints.addAll(circleE.getOctant(3, 1));
-		
-		return infinitePoints;
+		this.points.add(circleE.getOctant(4, -1).get(0));
+		this.points.add(circleE.getOctant(0, 1).get(0));
+		this.points.add(circleE.getOctant(2, -1).get(0));
+		this.points.add(circleE.getOctant(6, 1).get(0));
+		this.points.add(circleE.getOctant(7, -1).get(0));
+		this.points.add(circleE.getOctant(3, 1).get(0));
 		
 	}
 	
-	public ArrayList<Point> getAllOctantPoints() {
-		ArrayList<Point> infinitePoints = new ArrayList<Point>();
-		
-		int centerX = radius + size;
-		int centerY = radius + size;
-		
-		Circle circleE = new Circle();
-		circleE.midPointCircle(centerX, centerY, radius);
-		
-		centerX = centerX + radius*2;
-		
-		Circle circleD = new Circle();
-		circleD.midPointCircle(centerX, centerY, radius);
-		
-		infinitePoints.add(circleE.getOctant(1, -1).get(0));
-		infinitePoints.add(circleE.getOctant(5, 1).get(0));
-		
-		infinitePoints.add(circleD.getOctant(6, -1).get(0));
-		infinitePoints.add(circleD.getOctant(2, 1).get(0));
-		infinitePoints.add(circleD.getOctant(0, -1).get(0));
-		infinitePoints.add(circleD.getOctant(4, 1).get(0));
-		infinitePoints.add(circleD.getOctant(5, -1).get(0));
-		infinitePoints.add(circleD.getOctant(1, 1).get(0));
-		infinitePoints.add(circleD.getOctant(3, -1).get(0));
-		infinitePoints.add(circleD.getOctant(7, 1).get(0));
-		
-		infinitePoints.add(circleE.getOctant(4, -1).get(0));
-		infinitePoints.add(circleE.getOctant(0, 1).get(0));
-		infinitePoints.add(circleE.getOctant(2, -1).get(0));
-		infinitePoints.add(circleE.getOctant(6, 1).get(0));
-		infinitePoints.add(circleE.getOctant(7, -1).get(0));
-		infinitePoints.add(circleE.getOctant(3, 1).get(0));
-		
-		return infinitePoints;
-		
-	}
-	
-	public void drawInfinity(Graphics2D g2d,ArrayList<Point>points,boolean firstTime){
-		for(int i=0; i < points.size(); i++)
-		{
-			Point point = points.get(i);
-			g2d.drawLine(point.x, point.y, point.x, point.y);
-			
-		}
-	}
-	
-	private BufferedImage loadImage(String filePath) {
-		
-		BufferedImage image = null;
-		try {
-			image = ImageIO.read(new File(filePath));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Não da pra carregar imagem.");
-		}
-		return image;
-	}
-	
-	public void paint(Graphics g) {
-		
-		ArrayList<Point> points = this.getAllOctantPoints();
-		Graphics2D g2d = (Graphics2D) g;
-		
+	private void loadAllImages() {
 		String[] imgPaths = {"./images/1982_alemanha_breitner.jpg", "./images/1982_alemanha_rummenigge.jpg",
 				"./images/1982_argentina_ardiles1.jpg", "./images/1982_argentina_maradona.jpg",
 				"./images/1982_argentina_passarella.jpg", "./images/1982_austria_obermayer.jpg",
@@ -160,52 +84,106 @@ public class SurfaceImage extends JFrame {
 				"./images/1982_brasil_t-cerezo.jpg", "./images/1982_brasil_zico.jpg", "./images/1982_espanha_juanito.jpg",
 				"./images/1982_franca_giresse.jpg"};
 		
-		//drawInfinity(g2d, points, true);
-		int cImg = 0;
-		BufferedImage image = loadImage(imgPaths[cImg]);
+		TriangulatedImage.triangles = this.trianglePoints();
 		
-		
-		
-		/*
-		int countStep = step;
-		int octant = points.size()/16;
-		Point last = new Point(0,0);
-		int changeImg = octant;
-		for(int i=0; i < points.size(); i++)
+		for(int i=0; i< imgPaths.length; i++)
 		{
-			if(i == countStep)
-			{
-				clearWindow(g2d);
-				g2d.drawImage(image, null, points.get(i).x, points.get(i).y);
-				countStep += step;
-				last.x = points.get(i).x;
-				last.y = points.get(i).y;
-			}
-			
-			if(i == changeImg)
-			{
-				image = loadImage(imgPaths[++cImg]);
-				changeImg += octant ;
-			}
-			
-			sustain(10);
+			t[i] = new TriangulatedImage(width, height, imgPaths[i], i);
 		}
-		*/
-		
-	}
-	
-	private void sustain(int time){
-        if (time>0) {
-            long t = System.currentTimeMillis();
-            while (System.currentTimeMillis()-t<time);
-        }
-	}
-	
-	public static void clearWindow(Graphics2D g)
-	{
-	    g.setPaint(Color.white);
-	    g.fill(new Rectangle(0,0,1200,700));
-	    g.setPaint(Color.black);
-	}
 
+        this.cleaner = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
+	}
+	
+	private int[][] trianglePoints() {
+        int[][] tri = new int[16][3];
+
+        tri[0][0] = 0;
+        tri[0][1] = 4;
+        tri[0][2] = 3;
+
+        tri[1][0] = 0;
+        tri[1][1] = 1;
+        tri[1][2] = 4;
+
+        tri[2][0] = 1;
+        tri[2][1] = 2;
+        tri[2][2] = 5;
+
+        tri[3][0] = 2;
+        tri[3][1] = 5;
+        tri[3][2] = 6;
+
+        tri[4][0] = 6;
+        tri[4][1] = 9;
+        tri[4][2] = 12;
+
+        tri[5][0] = 11;
+        tri[5][1] = 9;
+        tri[5][2] = 12;
+
+        tri[6][0] = 8;
+        tri[6][1] = 10;
+        tri[6][2] = 11;
+
+        tri[7][0] = 3;
+        tri[7][1] = 8;
+        tri[7][2] = 10;
+
+        tri[8][0] = 3;
+        tri[8][1] = 7;
+        tri[8][2] = 8;
+
+        tri[9][0] = 3;
+        tri[9][1] = 4;
+        tri[9][2] = 7;
+
+        tri[10][0] = 1;
+        tri[10][1] = 4;
+        tri[10][2] = 7;
+
+        tri[11][0] = 1;
+        tri[11][1] = 5;
+        tri[11][2] = 7;
+
+        tri[12][0] = 5;
+        tri[12][1] = 6;
+        tri[12][2] = 7;
+
+        tri[13][0] = 9;
+        tri[13][1] = 6;
+        tri[13][2] = 7;
+
+        tri[14][0] = 7;
+        tri[14][1] = 9;
+        tri[14][2] = 11;
+
+        tri[15][0] = 7;
+        tri[15][1] = 8;
+        tri[15][2] = 11;
+
+        return tri;
+    }
+	
+	public void run() {
+		
+		Point pointA, pointB;
+        double step = (double) this.points.size() / 16;
+        
+        for(int i=0; i<t.length-1; i++)
+        {
+        	pointA = this.points.get(i);
+        	pointB = this.points.get(i+1); 	
+        	
+        	for (int j = 0; j < steps; j++) 
+        	{
+                double alpha = (double) j / steps;
+
+                int pointX = (int) ((1 - alpha) * pointA.x + alpha * pointB.x);
+                int pointY = (int) ((1 - alpha) * pointA.y + alpha * pointB.y);
+                
+                buffid.g2dbi.drawImage(t[i].mixWith(t[i+1], alpha), pointX, pointY, null);
+                buffid.repaint();        
+        	}
+        }	
+	}
 }
