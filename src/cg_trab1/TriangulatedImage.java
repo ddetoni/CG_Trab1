@@ -41,131 +41,160 @@ public class TriangulatedImage
         switch (image) {
             case 0:
                 //1st doctor
-                _2dpoints[4] = new Point2D.Double(46, 97);
-                _2dpoints[5] = new Point2D.Double(96, 96);
-                _2dpoints[7] = new Point2D.Double(66, 140);
-                _2dpoints[8] = new Point2D.Double(53, 154);
-                _2dpoints[9] = new Point2D.Double(89, 154);
+                _2dpoints[4] = new Point2D.Double(70, 55);
+                _2dpoints[5] = new Point2D.Double(90, 55);
+                _2dpoints[7] = new Point2D.Double(81, 68);
+                _2dpoints[8] = new Point2D.Double(70, 80);
+                _2dpoints[9] = new Point2D.Double(90, 80);
+                /*
+                _2dpoints[4] = new Point2D.Double(70, 52);
+                _2dpoints[5] = new Point2D.Double(90, 55);
+                _2dpoints[7] = new Point2D.Double(81, 68);
+                _2dpoints[8] = new Point2D.Double(70, 80);
+                _2dpoints[9] = new Point2D.Double(90, 80);
+                */
                 break;
             case 1:
                 //2nd doctor
+                _2dpoints[4] = new Point2D.Double(60, 50);
+                _2dpoints[5] = new Point2D.Double(80, 50);
+                _2dpoints[7] = new Point2D.Double(70, 65);
+                _2dpoints[8] = new Point2D.Double(60, 70);
+                _2dpoints[9] = new Point2D.Double(80, 70);
+                
+                /*
                 _2dpoints[4] = new Point2D.Double(58, 89);
                 _2dpoints[5] = new Point2D.Double(98, 92);
                 _2dpoints[7] = new Point2D.Double(75, 124);
                 _2dpoints[8] = new Point2D.Double(55, 148);
                 _2dpoints[9] = new Point2D.Double(97, 143);
+                */
                 break;
             case 2:
                 //3rd doctor
+                _2dpoints[4] = new Point2D.Double(85, 35);
+                _2dpoints[5] = new Point2D.Double(90, 35);
+                _2dpoints[7] = new Point2D.Double(80, 45);
+                _2dpoints[8] = new Point2D.Double(75, 55);
+                _2dpoints[9] = new Point2D.Double(85, 55);
+                /*
                 _2dpoints[4] = new Point2D.Double(46, 84);
                 _2dpoints[5] = new Point2D.Double(81, 83);
                 _2dpoints[7] = new Point2D.Double(55, 111);
                 _2dpoints[8] = new Point2D.Double(45, 128);
                 _2dpoints[9] = new Point2D.Double(81, 128);
+                */
                 break;
             case 3:
                 //4th doctor
+                _2dpoints[4] = new Point2D.Double(65, 55);
+                _2dpoints[5] = new Point2D.Double(90, 55);
+                _2dpoints[7] = new Point2D.Double(85, 65);
+                _2dpoints[8] = new Point2D.Double(75, 65);
+                _2dpoints[9] = new Point2D.Double(85, 65);
+                /*
                 _2dpoints[4] = new Point2D.Double(56, 90);
                 _2dpoints[5] = new Point2D.Double(101, 88);
                 _2dpoints[7] = new Point2D.Double(83, 113);
                 _2dpoints[8] = new Point2D.Double(58, 136);
                 _2dpoints[9] = new Point2D.Double(102, 133);
+                */
                 break;
             case 4:
                 //5th doctor
-                _2dpoints[4] = new Point2D.Double(49, 87);
-                _2dpoints[5] = new Point2D.Double(89, 84);
-                _2dpoints[7] = new Point2D.Double(66, 106);
-                _2dpoints[8] = new Point2D.Double(56, 132);
-                _2dpoints[9] = new Point2D.Double(90, 127);
+                _2dpoints[4] = new Point2D.Double(50, 60);
+                _2dpoints[5] = new Point2D.Double(80, 60);
+                _2dpoints[7] = new Point2D.Double(70, 70);
+                _2dpoints[8] = new Point2D.Double(60, 80);
+                _2dpoints[9] = new Point2D.Double(75, 80);
                 break;
             case 5:
                 //6th doctor
-                _2dpoints[4] = new Point2D.Double(51, 96);
-                _2dpoints[5] = new Point2D.Double(91, 92);
-                _2dpoints[7] = new Point2D.Double(77, 121);
-                _2dpoints[8] = new Point2D.Double(64, 143);
-                _2dpoints[9] = new Point2D.Double(95, 139);
+                _2dpoints[4] = new Point2D.Double(60, 50);
+                _2dpoints[5] = new Point2D.Double(80, 50);
+                _2dpoints[7] = new Point2D.Double(70, 62);
+                _2dpoints[8] = new Point2D.Double(60, 72);
+                _2dpoints[9] = new Point2D.Double(80, 72);
                 break;
             case 6:
                 //7th doctor
-                _2dpoints[4] = new Point2D.Double(58, 80);
-                _2dpoints[5] = new Point2D.Double(99, 82);
-                _2dpoints[7] = new Point2D.Double(88, 102);
-                _2dpoints[8] = new Point2D.Double(59, 127);
-                _2dpoints[9] = new Point2D.Double(96, 128);
+                _2dpoints[4] = new Point2D.Double(60, 70);
+                _2dpoints[5] = new Point2D.Double(100, 70);
+                _2dpoints[7] = new Point2D.Double(80, 90);
+                _2dpoints[8] = new Point2D.Double(65, 110);
+                _2dpoints[9] = new Point2D.Double(90, 110);
                 break;
             case 7:
                 //8th doctor
-                _2dpoints[4] = new Point2D.Double(54, 83);
-                _2dpoints[5] = new Point2D.Double(98, 81);
-                _2dpoints[7] = new Point2D.Double(78, 114);
-                _2dpoints[8] = new Point2D.Double(62, 135);
-                _2dpoints[9] = new Point2D.Double(99, 133);
+                _2dpoints[4] = new Point2D.Double(92, 45);
+                _2dpoints[5] = new Point2D.Double(110, 47);
+                _2dpoints[7] = new Point2D.Double(103, 57);
+                _2dpoints[8] = new Point2D.Double(86, 75);
+                _2dpoints[9] = new Point2D.Double(110, 75); 
                 break;
             case 8:
                 //9th doctor
-                _2dpoints[4] = new Point2D.Double(68, 91);
-                _2dpoints[5] = new Point2D.Double(112, 90);
-                _2dpoints[7] = new Point2D.Double(104, 124);
-                _2dpoints[8] = new Point2D.Double(77, 138);
-                _2dpoints[9] = new Point2D.Double(111, 133);
+                _2dpoints[4] = new Point2D.Double(87, 89);
+                _2dpoints[5] = new Point2D.Double(119, 84);
+                _2dpoints[7] = new Point2D.Double(104, 109);
+                _2dpoints[8] = new Point2D.Double(88, 123);
+                _2dpoints[9] = new Point2D.Double(115, 119);
                 break;
             case 9:
                 //10th doctor
-                _2dpoints[4] = new Point2D.Double(56, 102);
-                _2dpoints[5] = new Point2D.Double(103, 106);
-                _2dpoints[7] = new Point2D.Double(75, 140);
-                _2dpoints[8] = new Point2D.Double(60, 152);
-                _2dpoints[9] = new Point2D.Double(90, 156);
+                _2dpoints[4] = new Point2D.Double(54, 63);
+                _2dpoints[5] = new Point2D.Double(83, 58);
+                _2dpoints[7] = new Point2D.Double(68, 72);
+                _2dpoints[8] = new Point2D.Double(61, 82);
+                _2dpoints[9] = new Point2D.Double(83, 80);
                 break;
             case 10:
                 //11th doctor
-                _2dpoints[4] = new Point2D.Double(46, 94);
-                _2dpoints[5] = new Point2D.Double(90, 98);
-                _2dpoints[7] = new Point2D.Double(68, 134);
-                _2dpoints[8] = new Point2D.Double(50, 154);
-                _2dpoints[9] = new Point2D.Double(88, 149);
+                _2dpoints[4] = new Point2D.Double(55, 56);
+                _2dpoints[5] = new Point2D.Double(85, 57);
+                _2dpoints[7] = new Point2D.Double(71, 72);
+                _2dpoints[8] = new Point2D.Double(58, 83);
+                _2dpoints[9] = new Point2D.Double(79, 83);
                 break;
             case 11:
                 //amy pond
-                _2dpoints[4] = new Point2D.Double(48, 72);
-                _2dpoints[5] = new Point2D.Double(100, 72);
-                _2dpoints[7] = new Point2D.Double(74, 107);
-                _2dpoints[8] = new Point2D.Double(58, 132);
-                _2dpoints[9] = new Point2D.Double(95, 132);
+            	_2dpoints[4] = new Point2D.Double(99, 77);
+                _2dpoints[5] = new Point2D.Double(99, 80);
+                _2dpoints[7] = new Point2D.Double(118, 94);
+                _2dpoints[8] = new Point2D.Double(95, 99);
+                _2dpoints[9] = new Point2D.Double(110, 99);
                 break;
             case 12:
                 //clara oswald
-                _2dpoints[4] = new Point2D.Double(52, 88);
-                _2dpoints[5] = new Point2D.Double(99, 86);
-                _2dpoints[7] = new Point2D.Double(80, 112);
-                _2dpoints[8] = new Point2D.Double(64, 138);
-                _2dpoints[9] = new Point2D.Double(96, 134);
+                _2dpoints[4] = new Point2D.Double(59, 45);
+                _2dpoints[5] = new Point2D.Double(87, 43);
+                _2dpoints[7] = new Point2D.Double(76, 59);
+                _2dpoints[8] = new Point2D.Double(64, 71);
+                _2dpoints[9] = new Point2D.Double(81, 69);
                 break;
             case 13:
                 //river song
-                _2dpoints[4] = new Point2D.Double(52, 82);
-                _2dpoints[5] = new Point2D.Double(103, 78);
-                _2dpoints[7] = new Point2D.Double(86, 109);
-                _2dpoints[8] = new Point2D.Double(61, 130);
-                _2dpoints[9] = new Point2D.Double(102, 127);
+                _2dpoints[4] = new Point2D.Double(59, 68);
+                _2dpoints[5] = new Point2D.Double(85, 66);
+                _2dpoints[7] = new Point2D.Double(76, 81);
+                _2dpoints[8] = new Point2D.Double(60, 88);
+                _2dpoints[9] = new Point2D.Double(86, 88);
                 break;
             case 14:
                 //rory pond
-                _2dpoints[4] = new Point2D.Double(39, 84);
-                _2dpoints[5] = new Point2D.Double(80, 80);
-                _2dpoints[7] = new Point2D.Double(57, 110);
-                _2dpoints[8] = new Point2D.Double(50, 131);
-                _2dpoints[9] = new Point2D.Double(76, 129);
+                _2dpoints[4] = new Point2D.Double(64, 53);
+                _2dpoints[5] = new Point2D.Double(87, 49);
+                _2dpoints[7] = new Point2D.Double(79, 68);
+                _2dpoints[8] = new Point2D.Double(70, 71);
+                _2dpoints[9] = new Point2D.Double(87, 70);
                 break;
             case 15:
                 //rory's dad
-                _2dpoints[4] = new Point2D.Double(57, 87);
-                _2dpoints[5] = new Point2D.Double(104, 83);
-                _2dpoints[7] = new Point2D.Double(75, 115);
-                _2dpoints[8] = new Point2D.Double(62, 137);
-                _2dpoints[9] = new Point2D.Double(96, 138);
+                _2dpoints[4] = new Point2D.Double(88, 57);
+                _2dpoints[5] = new Point2D.Double(116, 55);
+                _2dpoints[7] = new Point2D.Double(103, 73);
+                _2dpoints[8] = new Point2D.Double(95, 80);
+                _2dpoints[9] = new Point2D.Double(112, 80);
                 break;
         }
         return _2dpoints;

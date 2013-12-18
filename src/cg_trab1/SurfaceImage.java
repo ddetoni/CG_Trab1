@@ -16,7 +16,7 @@ public class SurfaceImage {
 	
 	private static final int size = 50;
 	private static int radius = 200;
-	private static int steps = 5;
+	private static int steps = 20;
 	
 	public static void main(String[] args) {
 		
@@ -84,7 +84,7 @@ public class SurfaceImage {
 		
 		for(int i=0; i< imgPaths.length; i++)
 		{
-			t[i] = new TriangulatedImage(width, height, imgPaths[i], i);
+			t[i] = new TriangulatedImage(150, 200, imgPaths[i], i);
 		}
 
         this.cleaner = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
