@@ -21,6 +21,12 @@ public class SurfaceImage {
 	
 	public static void main(String[] args) {
 		
+		if (args.length == 2) {
+			radius = Integer.parseInt(args[0]);
+			steps = Integer.parseInt(args[1]);
+		}
+		
+		
 		SurfaceImage surImage = new SurfaceImage();
 		surImage.getAllOctantPoints();
 		surImage.loadAllImages();

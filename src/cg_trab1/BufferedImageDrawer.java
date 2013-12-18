@@ -9,13 +9,8 @@ public class BufferedImageDrawer extends Frame
 {
 	private static final long serialVersionUID = 1L;
 
-	//These image is drawn when the paint method is called.
 	public BufferedImage bi;
-
-	//This Graphics2D object can be used to draw on bi.
 	public Graphics2D g2dbi;
-
-	//The Graphics2D object used in the paint method.
 	private Graphics2D g2d;
 
 	public BufferedImageDrawer(BufferedImage buffIm, int width, int height)
@@ -23,7 +18,6 @@ public class BufferedImageDrawer extends Frame
 		bi = buffIm;
 		g2dbi = bi.createGraphics();
 
-		//Enables the closing of the window.
 		addWindowListener(new MyFinishWindow());
 
 		this.setSize(width,height);
