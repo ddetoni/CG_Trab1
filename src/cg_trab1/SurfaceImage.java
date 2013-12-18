@@ -12,12 +12,12 @@ public class SurfaceImage {
 	private TriangulatedImage t[] = new TriangulatedImage[16];
     private BufferedImage cleaner;
     private ArrayList<Point> points;
-    private int width=1000;
+    private int width=1400;
     private int height=1000;
 	
 	private static final int size = 50;
 	private static int radius = 200;
-	private static int steps = 20;
+	private static int steps = 30;
 	
 	public static void main(String[] args) {
 		
@@ -162,33 +162,43 @@ public class SurfaceImage {
     }
 	
 	public void run() {
-		
+		boolean last = false;
 		Point pointA, pointB;
 		int auxX =0 ,auxY = 0;
 		
-        for(int i=0; i<t.length-1; i++)
+		
+        for(int i=0; i<t.length; i++)
         {
         	pointA = this.points.get(i);
-        	pointB = this.points.get(i+1); 	
+        	if(i+1==t.length){
+        		last=true;
+        		pointB=this.points.get(0);
+        	}else{
         	
+        		pointB = this.points.get(i+1); 	
+        	}
         	for (int j = 0; j < steps; j++) 
         	{
                 double alpha = (double) j / steps;
                
                 int pointX = (int) ((1 - alpha) * pointA.x + alpha * pointB.x);
                 int pointY = (int) ((1 - alpha) * pointA.y + alpha * pointB.y);
-                buffid.g2dbi.clearRect(auxX, auxY, 400, 400);
+                buffid.g2dbi.clearRect(auxX, auxY, 155, 210);
                 auxX= pointX;
                 auxY= pointY;
-                buffid.g2dbi.drawImage(t[i].mixWith(t[i+1], alpha), pointX, pointY, null);
+                if(last){
+                	buffid.g2dbi.drawImage(t[i].mixWith(t[0], alpha), pointX, pointY, null);
+                }else{
+                	buffid.g2dbi.drawImage(t[i].mixWith(t[i+1], alpha), pointX, pointY, null);
+                }
                
                 buffid.repaint();
                try {
-				Thread.sleep(5);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				Thread.sleep(10);
+               } catch (InterruptedException e) {
+            	   // TODO Auto-generated catch block
+            	   e.printStackTrace();
+               }
                 
         	}
         }	
