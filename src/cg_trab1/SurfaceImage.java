@@ -1,6 +1,7 @@
 package cg_trab1;
 
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -16,7 +17,7 @@ public class SurfaceImage {
 	
 	private static final int size = 50;
 	private static int radius = 200;
-	private static int steps = 5;
+	private static int steps = 20;
 	
 	public static void main(String[] args) {
 		
@@ -84,7 +85,7 @@ public class SurfaceImage {
 		
 		for(int i=0; i< imgPaths.length; i++)
 		{
-			t[i] = new TriangulatedImage(width, height, imgPaths[i], i);
+			t[i] = new TriangulatedImage(150, 200, imgPaths[i], i);
 		}
 
         this.cleaner = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
@@ -163,7 +164,8 @@ public class SurfaceImage {
 	public void run() {
 		
 		Point pointA, pointB;
-        
+		int auxX =0 ,auxY = 0;
+		
         for(int i=0; i<t.length-1; i++)
         {
         	pointA = this.points.get(i);
@@ -172,12 +174,21 @@ public class SurfaceImage {
         	for (int j = 0; j < steps; j++) 
         	{
                 double alpha = (double) j / steps;
-
+               
                 int pointX = (int) ((1 - alpha) * pointA.x + alpha * pointB.x);
                 int pointY = (int) ((1 - alpha) * pointA.y + alpha * pointB.y);
-                
+                buffid.g2dbi.clearRect(auxX, auxY, 400, 400);
+                auxX= pointX;
+                auxY= pointY;
                 buffid.g2dbi.drawImage(t[i].mixWith(t[i+1], alpha), pointX, pointY, null);
+               
                 buffid.repaint();
+               try {
+				Thread.sleep(5);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
                 
         	}
         }	
